@@ -22,7 +22,7 @@ public class MapDemo {
 	        
 	        Question q1=new Question();
 //	        q1.setQid(10);
-	        q1.setQuestion("Did you ear");
+	        q1.setQuestion("Did you eat?");
 	        Answer a1=new Answer();
 //	        a1.setAid(10);
 	        a1.setAnswer("Yes");
@@ -42,6 +42,14 @@ public class MapDemo {
 	        session.save(q1);
 //	        session.save(a1);
 //	        session.save(a2);
+	        
+	        Question q=(Question)session.get(Question.class, 1);
+	        System.out.println(q.getQuestion());
+	        
+	        for(Answer a:q.getAns())
+	        	System.out.println(a.getAnswer());
+	        
+	        
 	        tx.commit();
 //	        session.close();
 //	        factory.close();
